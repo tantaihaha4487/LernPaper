@@ -1,0 +1,6 @@
+name: LernPaper
+version: '${project.version}'
+main: LernPaper.Main
+api-version: 1.18
+authors: [ TantaiHaha ]
+description: Lern Plugin v.2
