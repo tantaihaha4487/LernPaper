@@ -13,6 +13,6 @@ public class onPlayerExp implements Listener {
     public void onExp(PlayerPickupExperienceEvent e) {
         Player p = e.getPlayer();
         int exp = e.getExperienceOrb().getExperience();
-        p.sendActionBar(new TextComponent(ChatColor.BOLD.toString() + ChatColor.GREEN+ "Gain XP: " + ChatColor.YELLOW + exp));
+        p.sendActionBar(new TextComponent(ChatColor.GREEN + ChatColor.BOLD.toString() + "Gain XP: " + ChatColor.YELLOW + ChatColor.BOLD + exp));
     }
 }
