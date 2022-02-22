@@ -1,4 +1,4 @@
-package LernPaper.event;
+package LernPaper.ExpGain.event;
 
 import com.destroystokyo.paper.event.player.PlayerPickupExperienceEvent;
 import net.md_5.bungee.api.chat.TextComponent;
