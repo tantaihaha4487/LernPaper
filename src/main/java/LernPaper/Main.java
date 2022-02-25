@@ -1,6 +1,7 @@
 package LernPaper;
 
 import LernPaper.DamageIndicator.event.EntityDmg;
+import LernPaper.DamageIndicator.task.ArmorStandTask;
 import LernPaper.ExpGain.event.onPlayerExp;
 import LernPaper.tantaihaha.commands.tantaihahaCommands;
 import LernPaper.tantaihaha.tab.tantaihahaTab;
@@ -28,6 +29,8 @@ public final class Main extends JavaPlugin {
         //TantaiHaha Commands hard coded
         getCommand("tantaihaha").setExecutor(new tantaihahaCommands());
         getCommand("tantaihaha").setTabCompleter(new tantaihahaTab());
+        /*===============================================[Logic]===============================================*/
+        new ArmorStandTask(this);
 
     }
 }
