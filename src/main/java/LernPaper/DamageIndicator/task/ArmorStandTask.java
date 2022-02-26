@@ -87,8 +87,9 @@ public class ArmorStandTask {
             @Override
             public void run() {
                 armorStand.remove();
+                standManager.remove(armorStand);
             }
-        },  7);
+        }, 7);
 
     }
     public static String standDmgTitle(Double FinalDmg,double now, Double max) {
@@ -97,15 +98,24 @@ public class ArmorStandTask {
         String Dmg = "-" + DmgFormat;
         String nowFotmat = String.format("%.1f", now);
 
+        if(FinalDmg > now) {
+            String name = ChatColor.RED + Dmg + ChatColor.GREEN + " [0/" + HealthFormat + "❤]";
+            return name;
+        }
+
         String name = ChatColor.RED + Dmg + ChatColor.GREEN + " [" + nowFotmat + "/" + HealthFormat + "❤]";
         return name;
     }
-    public static String standHealthTitle(double Health, double now, double MaxHealth) {
-        String HealthFormat = String.format("%.1f", Health);
+    public static String standHealthTitle(double Regen, double now, double MaxHealth) {
+        String RegenFormat = String.format("%.1f", Regen);
         String MaxHealthFormat = String.format("%.1f", MaxHealth);
         String nowFotmat = String.format("%.1f", now);
+        if(now == MaxHealth) {
+            String name = ChatColor.AQUA + "+" + RegenFormat + ChatColor.GREEN + " [" + MaxHealthFormat + "❤]";
+            return name;
+        }
 
-        String name = ChatColor.AQUA + ChatColor.BOLD.toString() + "+" + HealthFormat + ChatColor.GREEN + " [" + nowFotmat + "/" + MaxHealthFormat + "❤]";
+        String name = ChatColor.AQUA + "+" + RegenFormat + ChatColor.GREEN + " [" + nowFotmat + "/" + MaxHealthFormat + "❤]";
 
         return name;
 
@@ -114,6 +124,7 @@ public class ArmorStandTask {
         for(int i = 0; i < standManager.size(); i++) {
             ArmorStand stand = standManager.get(i);
             stand.remove();
+            standManager.remove(i);
 
         }
     }

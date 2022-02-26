@@ -1,6 +1,7 @@
 package LernPaper;
 
 import LernPaper.DamageIndicator.event.EntityDmg;
+import LernPaper.DamageIndicator.event.EntityHealthEvent;
 import LernPaper.DamageIndicator.task.ArmorStandTask;
 import LernPaper.ExpGain.event.onPlayerExp;
 import LernPaper.tantaihaha.commands.tantaihahaCommands;
@@ -25,6 +26,7 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new onPlayerExp(), this);
         //DamageIndicator
         getServer().getPluginManager().registerEvents(new EntityDmg(), this);
+        getServer().getPluginManager().registerEvents(new EntityHealthEvent(), this);
         /*===============================================[Commands]===============================================*/
         //TantaiHaha Commands hard coded
         getCommand("tantaihaha").setExecutor(new tantaihahaCommands());
