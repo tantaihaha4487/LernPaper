@@ -18,15 +18,19 @@ public class EntityDmg implements Listener {
     @EventHandler
     public void onDmg(EntityDamageEvent e) {
         Entity entity = e.getEntity();
-        if(!(entity instanceof Player)) return;
-        double FinalDmg = e.getFinalDamage();
-        Damageable damageable = (Damageable) entity;
-        double max = damageable.getHealth();
-        Location location = entity.getLocation().add(RandomLocation.RandomDouble(), entity.getHeight()+ 0.03D, RandomLocation.RandomDouble());
-        ArmorStand stand = ArmorStandTask.SpawnArmorStand(location, ArmorStandTask.standTitle(FinalDmg, max));
-        ArmorStandTask.KillArmorStand(stand);
+        if(!ArmorStandTask.Type(entity)) {
+            double FinalDmg = e.getFinalDamage();
+            Damageable damageable = (Damageable) entity;
+            double max = damageable.getMaxHealth();
+            double nowHealth = damageable.getHealth();
+            Location location = entity.getLocation().add(RandomLocation.RandomDouble(), entity.getHeight()+ 0.03D, RandomLocation.RandomDouble());
+            ArmorStand stand = ArmorStandTask.SpawnArmorStand(location, ArmorStandTask.standDmgTitle(FinalDmg,nowHealth, max));
+            ArmorStandTask.standManager.add(stand);
+            ArmorStandTask.KillArmorStand(stand);
+
+        }
     }
-    @EventHandler
+    /*@EventHandler
     public void onEntityDmgByEntity(EntityDamageByEntityEvent e) {
         if(!(e.getDamager() instanceof Player)) return;
         Entity entity = e.getEntity();
@@ -37,11 +41,13 @@ public class EntityDmg implements Listener {
 
         if(e.isCritical()) {
             ArmorStand stand = ArmorStandTask.SpawnArmorStand(location, ArmorStandTask.standTitle(FinalDmg, max) + ChatColor.GOLD + ChatColor.BOLD + " Critical");
+            ArmorStandTask.standManager.add(stand);
             ArmorStandTask.KillArmorStand(stand);
         }
         else {
             ArmorStand stand = ArmorStandTask.SpawnArmorStand(location, ArmorStandTask.standTitle(FinalDmg, max));
+            ArmorStandTask.standManager.add(stand);
             ArmorStandTask.KillArmorStand(stand);
         }
-    }
+    }*/
 }

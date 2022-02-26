@@ -33,4 +33,9 @@ public final class Main extends JavaPlugin {
         new ArmorStandTask(this);
 
     }
+
+    @Override
+    public void onDisable() {
+        ArmorStandTask.removeAll();
+    }
 }
