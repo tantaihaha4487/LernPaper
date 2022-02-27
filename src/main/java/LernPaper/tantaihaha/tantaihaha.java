@@ -10,6 +10,5 @@ public class tantaihaha {
         this.plugin = plugin;
         plugin.getCommand("tantaihaha").setExecutor(new tantaihahaCommands());
         plugin.getCommand("tantaihaha").setTabCompleter(new tantaihahaTab());
-
     }
 }
