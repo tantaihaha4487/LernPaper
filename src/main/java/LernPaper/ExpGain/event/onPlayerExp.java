@@ -1,7 +1,6 @@
 package LernPaper.ExpGain.event;
 
 import com.destroystokyo.paper.event.player.PlayerPickupExperienceEvent;
-import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,6 +12,6 @@ public class onPlayerExp implements Listener {
     public void onExp(PlayerPickupExperienceEvent e) {
         Player p = e.getPlayer();
         int exp = e.getExperienceOrb().getExperience();
-        p.sendActionBar(new TextComponent(ChatColor.GREEN + ChatColor.BOLD.toString() + "Gain XP: " + ChatColor.YELLOW + ChatColor.BOLD + exp));
+        p.sendActionBar(ChatColor.GREEN + ChatColor.BOLD.toString() + "Gain XP: " + ChatColor.YELLOW + ChatColor.BOLD + exp);
     }
 }

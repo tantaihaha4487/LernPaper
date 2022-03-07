@@ -1,6 +1,7 @@
-package LernPaper.ExpGain.event;
+package LernPaper.ExpGain;
 
 import LernPaper.Main;
+import LernPaper.ExpGain.event.onPlayerExp;
 
 public class ExpGain {
     private Main plugin;

@@ -2,7 +2,8 @@ package LernPaper;
 
 import LernPaper.DamageIndicator.DamgeIndicator;
 import LernPaper.DamageIndicator.task.ArmorStandTask;
-import LernPaper.ExpGain.event.ExpGain;
+import LernPaper.DeathPaper.DeathPaper;
+import LernPaper.ExpGain.ExpGain;
 import LernPaper.tantaihaha.tantaihaha;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -23,10 +24,8 @@ public final class Main extends JavaPlugin {
         new DamgeIndicator(this);
         new ExpGain(this);
         new tantaihaha(this);
-
-
+        new DeathPaper(this);
     }
-
     @Override
     public void onDisable() {
         ArmorStandTask.removeAll();
