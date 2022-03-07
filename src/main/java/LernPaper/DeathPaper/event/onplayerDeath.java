@@ -37,7 +37,6 @@ public class onplayerDeath implements Listener {
         paperMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         paper.setItemMeta(paperMeta);
 
-
         p.getInventory().addItem(paper);
     }
 }
