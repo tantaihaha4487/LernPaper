@@ -6,7 +6,7 @@ import LernPaper.Main;
 public class DeathPaper {
 
     public DeathPaper(Main plugin) {
-        plugin.getServer().getPluginManager().registerEvents(new onplayerDeath(), plugin);
+        plugin.getServer().getPluginManager().registerEvents(new onplayerDeath(plugin), plugin);
     }
 
 }
