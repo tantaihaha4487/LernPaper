@@ -34,7 +34,7 @@ public class onplayerDeath implements Listener {
         int x = loc.getBlockX();
         int y = loc.getBlockY();
         int z = loc.getBlockZ();
-        int dorpExpSize = e.getDroppedExp();
+        int dropExpSize = e.getDroppedExp();
         LocalDateTime myDateObj = LocalDateTime.now();
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
@@ -49,7 +49,7 @@ public class onplayerDeath implements Listener {
                 ChatColor.LIGHT_PURPLE +" Y: "+ ChatColor.AQUA+  y +
                 ChatColor.LIGHT_PURPLE +" Z: " + ChatColor.AQUA + z);
         lore.add(ChatColor.LIGHT_PURPLE + "Time: " + formattedDate);
-        lore.add(ChatColor.LIGHT_PURPLE + "Exp: " + ChatColor.AQUA + dorpExpSize);
+        lore.add(ChatColor.LIGHT_PURPLE + "Exp: " + ChatColor.AQUA + dropExpSize);
 
         paperMeta.setLore(lore);
         paperMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);

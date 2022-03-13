@@ -1,5 +1,6 @@
 package LernPaper.util;
 
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class PlayerUtils {
@@ -21,5 +22,10 @@ public class PlayerUtils {
             break;
         }
         return envi;
+    }
+    public static boolean isOp(CommandSender sender) {
+        Player p = (Player) sender;
+        if(!p.isOp()) {return false;}
+        else {return true;}
     }
 }
