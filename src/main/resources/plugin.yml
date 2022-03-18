@@ -8,3 +8,6 @@ commands:
   tantaihaha:
     description: Dev Commamds
     usage: /tantaihaha <action> <ags[1]>
+  bar:
+    description: add Tps bar
+    usage: /bar

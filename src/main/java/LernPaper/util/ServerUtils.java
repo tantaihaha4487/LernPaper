@@ -6,7 +6,7 @@ import org.bukkit.ChatColor;
 import java.util.Random;
 
 public class ServerUtils {
-    private static Random rand = new Random();
+    private static final Random rand = new Random();
     public static void RandomLogger() {
         int log = rand.nextInt(3);
         switch (log) {
@@ -21,15 +21,11 @@ public class ServerUtils {
                 break;
             case 1:
                 Bukkit.getLogger().info("1");Bukkit.getServer().getLogger().info(ChatColor.GREEN + "\n\n");
-                Bukkit.getServer().getLogger().info(ChatColor.GREEN + "///        /////////  //////     ///      //");
-                Bukkit.getServer().getLogger().info(ChatColor.GREEN + "///        ///        ///   ///  /////    //");
-                Bukkit.getServer().getLogger().info(ChatColor.GREEN + "///        ///        ///   ///  /////    //");
-                Bukkit.getServer().getLogger().info(ChatColor.GREEN + "///        /////////  /////////  ///  //  //");
-                Bukkit.getServer().getLogger().info(ChatColor.GREEN + "///        /////////  //////     ///  //  //");
-                Bukkit.getServer().getLogger().info(ChatColor.GREEN + "///        ///        ///   ///  ///    ////");
-                Bukkit.getServer().getLogger().info(ChatColor.GREEN + "/////////  ///        ///   ///  ///    ////");
-                Bukkit.getServer().getLogger().info(ChatColor.GREEN + "/////////  /////////  ///   ///  ///      //");
-                Bukkit.getServer().getLogger().info(ChatColor.GREEN + "                                    `PAPER.");
+                Bukkit.getServer().getLogger().info(ChatColor.GREEN + "▓▓▓▓▓▓    ▓▓      ▓▓    ▓▓  ▓▓▓▓▓▓      ▓▓      ▓▓▓▓");
+                Bukkit.getServer().getLogger().info(ChatColor.GREEN + "  ▓▓    ▓▓  ▓▓    ▓▓▓▓  ▓▓    ▓▓      ▓▓  ▓▓        ");
+                Bukkit.getServer().getLogger().info(ChatColor.GREEN + "  ▓▓    ▓▓▓▓▓▓    ▓▓  ▓▓▓▓    ▓▓      ▓▓▓▓▓▓    ▓▓▓▓");
+                Bukkit.getServer().getLogger().info(ChatColor.GREEN + "  ▓▓  ▓▓      ▓▓  ▓▓    ▓▓    ▓▓    ▓▓      ▓▓  ▓▓▓▓");
+                Bukkit.getServer().getLogger().info(ChatColor.GREEN + "                                                      `PAPER.");
                 Bukkit.getServer().getLogger().info(ChatColor.GREEN + "\n\n");
                 break;
             case 2:
@@ -55,5 +51,19 @@ public class ServerUtils {
                 break;
             }
         }
+    }
+    public static String getTps() {
+        double[] tps = Bukkit.getTPS();
+        String[] tpsAvg = new String[tps.length];
+        for ( int i = 0; i < tps.length; i++) {
+            tpsAvg[i] = tpsFormat( tps[i] );
+        }
+        String test = org.apache.commons.lang.StringUtils.join(tpsAvg, ", ");
+        return test;
+    }
+    private static String tpsFormat(double tps) // Paper - Made static
+    {
+        return ( ( tps > 18.0 ) ? ChatColor.GREEN : ( tps > 16.0 ) ? ChatColor.YELLOW : ChatColor.RED ).toString()
+                + ( ( tps > 21.0 ) ? "*" : "" ) + Math.min( Math.round( tps * 100.0 ) / 100.0, 20.0 ); // Paper - only print * at 21, we commonly peak to 20.02 as the tick sleep is not accurate enough, stop the noise
     }
 }

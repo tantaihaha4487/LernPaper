@@ -1,5 +1,6 @@
 package LernPaper.util;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -27,5 +28,8 @@ public class PlayerUtils {
         Player p = (Player) sender;
         if(!p.isOp()) {return false;}
         else {return true;}
+    }
+    public static void isPlayer(CommandSender sender) {
+        if(!(sender instanceof  Player)) {sender.sendMessage(ChatColor.RED + "You aren't Player"); return;}
     }
 }
