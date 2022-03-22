@@ -1,5 +1,6 @@
 package LernPaper;
 
+import LernPaper.CreativeWorld.CreativeWorld;
 import LernPaper.DamageIndicator.DamgeIndicator;
 import LernPaper.DamageIndicator.task.ArmorStandTask;
 import LernPaper.DeathPaper.DeathPaper;
@@ -22,6 +23,10 @@ public final class Main extends JavaPlugin {
         new tantaihaha(this);
         new DeathPaper(this);
         new statasBar(this);
+        new CreativeWorld(this);
+        /*===============================================[Configuration]===============================================*/
+        getConfig().options().copyDefaults(true);
+        saveDefaultConfig();
     }
     @Override
     public void onDisable() {

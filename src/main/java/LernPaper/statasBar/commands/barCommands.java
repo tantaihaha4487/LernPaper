@@ -2,7 +2,6 @@ package LernPaper.statasBar.commands;
 
 import LernPaper.statasBar.task.barTask;
 import LernPaper.util.PlayerUtils;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,7 +16,6 @@ public class barCommands implements CommandExecutor {
         if(cmd.getName().equalsIgnoreCase("bar")) {
             if(barTask.inUse.contains(p)) {
                 barTask.remove(p);
-                p.sendMessage(ChatColor.AQUA + "");
             }
             else {barTask.add(p);}
         }

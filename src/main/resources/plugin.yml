@@ -11,3 +11,6 @@ commands:
   bar:
     description: add Tps bar
     usage: /bar
+  c:
+    description: Enter Creative World
+    usage: /c

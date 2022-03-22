@@ -31,6 +31,14 @@ public class onplayerDeath implements Listener {
     public void onPlayerDeath(PlayerDeathEvent e) {
         Player p = e.getPlayer();
         Location loc = p.getLocation();
+        List<ItemStack> DropList = e.getDrops();
+        int DropNow = 0;
+
+        for (ItemStack item : DropList) {
+            int amount = item.getAmount();
+            DropNow = DropNow + amount;
+        }
+
         int x = loc.getBlockX();
         int y = loc.getBlockY();
         int z = loc.getBlockZ();
@@ -41,15 +49,17 @@ public class onplayerDeath implements Listener {
 
         ItemStack paper = new ItemStack(Material.PAPER);
         ItemMeta paperMeta = paper.getItemMeta();
-        paperMeta.setDisplayName(ChatColor.GOLD + "Death Paper");
+        paperMeta.setDisplayName(ChatColor.GOLD + p.getName() + " Death Paper");
         paperMeta.addEnchant(Enchantment.LUCK, 1, true);
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.LIGHT_PURPLE + "Player: " + p.getName());
+        lore.add(ChatColor.LIGHT_PURPLE + "Player: " + ChatColor.AQUA + p.getName());
         lore.add(ChatColor.LIGHT_PURPLE + "X: " + ChatColor.AQUA + x +
-                ChatColor.LIGHT_PURPLE +" Y: "+ ChatColor.AQUA+  y +
+                ChatColor.LIGHT_PURPLE +" Y: " + ChatColor.AQUA+  y +
                 ChatColor.LIGHT_PURPLE +" Z: " + ChatColor.AQUA + z);
-        lore.add(ChatColor.LIGHT_PURPLE + "Time: " + formattedDate);
+        lore.add(ChatColor.LIGHT_PURPLE + "Time: " + ChatColor.AQUA + formattedDate);
+        lore.add(ChatColor.LIGHT_PURPLE + "Item: " + ChatColor.AQUA + DropNow);
         lore.add(ChatColor.LIGHT_PURPLE + "Exp: " + ChatColor.AQUA + dropExpSize);
+        lore.add(ChatColor.AQUA + e.getDeathMessage());
 
         paperMeta.setLore(lore);
         paperMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
