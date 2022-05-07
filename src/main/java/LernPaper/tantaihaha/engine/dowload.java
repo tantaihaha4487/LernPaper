@@ -61,6 +61,5 @@ public class dowload {
             stream.write(bytes, 0, count);
         }
         Bukkit.getLogger().info(ChatColor.GREEN + "Update Done!");
-
     }
 }

@@ -7,7 +7,7 @@ description: Lern Plugin v.2
 commands:
   tantaihaha:
     description: Dev Commamds
-    usage: /tantaihaha <action> <ags[1]>
+    usage: /tantaihaha <action> <args[1]>
   bar:
     description: add Tps bar
     usage: /bar
